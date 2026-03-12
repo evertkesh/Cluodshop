@@ -1,0 +1,514 @@
+.proceso-compra {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.nav-proceso {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #ddd;
+  background: white;
+}
+
+.nav-item {
+  flex: 1;
+  text-align: center;
+  padding: 1rem;
+  cursor: pointer;
+  position: relative;
+  color: #666;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: block;
+}
+
+.nav-item.activo {
+  color: #c71104;
+  font-weight: bold;
+}
+
+.nav-item.activo::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #c71104;
+}
+
+.carrito-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+}
+
+.carrito-productos {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.producto-item {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.producto-item img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.carrito-resumen {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.carrito-resumen h2 {
+  color: #333;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #c71104;
+}
+
+.cupon {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.cupon input {
+  flex: 1;
+  padding: 0.75rem;
+  border: 2px solid #dee2e6;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.2s ease;
+}
+
+.cupon input:focus {
+  outline: none;
+  border-color: #c71104;
+  box-shadow: 0 0 0 2px rgba(199, 17, 4, 0.1);
+}
+
+.mensaje-cupon {
+  margin: 0.5rem 0 1rem;
+  padding: 0.75rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  text-align: center;
+  animation: fadeIn 0.3s ease;
+}
+
+.mensaje-cupon.exito {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.mensaje-cupon.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+.resumen-costos {
+  margin-top: 1.5rem;
+}
+
+.costo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.costo-item.descuento {
+  color: #28a745;
+  background-color: #d4edda;
+  padding: 0.75rem;
+  border-radius: 4px;
+  margin: 0.5rem 0;
+  border: none;
+}
+
+.envio-gratis {
+  color: #28a745 !important;
+  font-weight: 500;
+}
+
+.costo-item.total {
+  border-bottom: none;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 2px solid #dee2e6;
+}
+
+.costo-item.total span {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #c71104;
+}
+
+.botones-accion {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.btn-siguiente, 
+.btn-cancelar {
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.btn-siguiente {
+  background: #c71104;
+  color: white;
+  border: none;
+}
+
+.btn-siguiente:hover {
+  background: #a30e03;
+}
+
+.btn-cancelar {
+  background: white;
+  border: 1px solid #c71104;
+  color: #c71104;
+}
+
+.btn-cancelar:hover {
+  background: #fff5f5;
+}
+
+@media (max-width: 768px) {
+  .carrito-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .nav-proceso {
+    flex-direction: column;
+  }
+  
+  .botones-accion {
+    flex-direction: column;
+  }
+  
+  .btn-siguiente,
+  .btn-cancelar {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.caja-carrito{
+    border: 10px solid #c71104;
+    height: 600px;
+}
+
+/* Métodos Pago */
+.pago-container {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.metodosPago {
+  flex: 0.755;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  gap : 10px;
+}
+
+.btn-activo {
+  width: 46px;
+  cursor: pointer;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  margin-top: 20px
+}
+
+.btn-inactivo {
+  margin-top: 27px;
+  width: 35px;
+  cursor: pointer;
+  margin-left: 25.4px;
+  margin-bottom: 30px
+}
+
+.botonesSeleccion {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  gap: 20px;
+}
+
+.tarjetaCredito {
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  background-color: #C8E5FF;
+  border-radius: 20px;
+  margin-bottom: 30px;
+  border: 1px solid #dbeffd;
+}
+
+.paypal {
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  background-color: #C8E5FF;
+  border-radius: 20px;
+  border: 1px solid #dbeffd;
+  display: flex;
+}
+
+#datosTarjetaxd {
+  margin-bottom: 25px;
+}
+
+.campo1 {
+  background-color: #D4FCF5;
+  border: 1px solid;
+  border-radius: 4px;
+  width: 303px;
+  font-size: 23px;
+  margin-left: 39px;
+  margin-top: 30px;
+}
+
+.campo2 {
+  background-color: #D4FCF5;
+  border: 1px solid;
+  border-radius: 4px;
+  width: 135px;
+  font-size: 23px;
+  margin-left: 43px;
+  margin-top: 30px;
+}
+
+.campo3 {
+  background-color: #D4FCF5;
+  border: 1px solid;
+  border-radius: 4px;
+  width: 111px;
+  font-size: 23px;
+  margin-left: 28px;
+  margin-top: 30px;
+}
+
+.campo4 {
+  background-color: #D4FCF5;
+  border: 1px solid;
+  border-radius: 4px;
+  width: 620px;
+  font-size: 23px;
+  margin-left: 39px;
+  margin-top: 26px;
+}
+
+.onPaypal {
+  width: 60px;
+  margin-left: 370px;
+  height: 60px;
+  margin-top: 20px;
+}
+
+.offPaypal {
+  width: 60px;
+  margin-left: 375px;
+  height: 60px;
+  margin-top: 18px;
+  opacity: 40%;
+}
+
+#ingresarPaypal {
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-Color: rgba(0,0,0,0.4);
+}
+
+.contenidoPaypal {
+  background: #fff;
+  margin: 13% auto;
+  box-Shadow: 0 4px 8px rgba(0,0,0,0.2);
+  padding: 20px;
+  border-radius: 10px;
+  height: 275px;
+  width: 38%;
+  text-align: center;
+}
+
+.cabezeraPaypal img{
+  width: 140px;
+}
+
+.close {
+  position: absolute;
+  top: 175px;
+  right: 440px;
+  background: transparent;
+  border: none;
+  font-size: 23px;
+  cursor: pointer;
+  color:rgb(141, 20, 20);
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.close:hover {
+  color:#ff1100;
+  transform: scale(1.1);
+}
+
+.cuerpoPaypal {
+  background-color: #d5d5d5;
+  position: absolute;
+  width: 578.5px;
+  left: 471px;
+}
+
+.nombrePaypal {
+  font-size: 16px;
+  margin-top: 30px;
+  width: 240px;
+}
+
+.contraPaypal {
+  font-size: 16px;
+  margin-top: 15px;
+  width: 240px;
+}
+
+.cuerpoPaypal button {
+  background: #55bbff;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 10px;
+  width: 150px;
+  margin-top: 26px;
+  margin-bottom: 30px;
+}
+
+/* */
+
+.carrito-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.carrito-item:hover {
+  transform: scale(1.02);
+}
+
+.carrito-item-img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.carrito-contenedor {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.carrito-contenedor h4 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.carrito-contenedor p {
+  margin: 0;
+  font-size: 1rem;
+  color: #444;
+  font-weight: 500;
+}
+
+.cantidad-controles {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cantidad-controles button {
+  width: 30px;
+  height: 30px;
+  border: none;
+  background: #f0f0f0;
+  border-radius: 6px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.cantidad-controles button:hover {
+  background: #ddd;
+}
+
+.cantidad-controles span {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.remover-carrito {
+  margin-top: 0.5rem;
+  padding: 0.4rem 0.8rem;
+  border: none;
+  border-radius: 6px;
+  background: #ff4d4d;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  align-self: flex-start;
+}
+
+.remover-carrito:hover {
+  background: #e60000;
+}
